@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -26,6 +27,12 @@ public class LoginController
     
     @FXML
     private Text textError;
+    
+    @FXML
+    private Button btLogin;
+    
+    @FXML
+    private Button btRegister;
 
     @FXML
     void onClickLogin(ActionEvent event) throws Exception
@@ -39,6 +46,9 @@ public class LoginController
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			
+			Stage stage = (Stage) btLogin.getScene().getWindow();
+    		stage.close();
     	}
     	
     	else{
@@ -54,6 +64,9 @@ public class LoginController
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		
+		Stage stage = (Stage) btLogin.getScene().getWindow();
+		stage.close();
     }
 
 }

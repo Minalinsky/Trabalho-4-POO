@@ -5,31 +5,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
-import marketlib.Costumer;
-import marketlib.Product;
-
-public class MarketClient {
-	
-	private static final String SUCCESS = "success";
-	private static final String ERROR = "error";
-	private static final String DUPLICATED_COSTUMER = "duplicated costumer";
-	private static final String INVALID_COSTUMER = "invalid costumer";
-	private static final String INVALID_PRODUCT = "invalid product";
-	private static final String EOF = "eof";
-	
-	private static final String OP_REGISTER_COSTUMER = "register costumer";
-	private static final String OP_LOGIN = "login";
-	private static final String OP_REFRESH_CLIENT = "refresh client";
+import marketlib.*;
+public class MarketClient extends DEFINE {
 	
 	private static ObjectOutputStream objOut = null;
-	private static ObjectInputStream objIn = null;
 	private static BufferedReader lineIn = null; //Criado pois o readLine() do ObjectInputStream está como "deprecated"
 	private static PrintStream lineOut = null;
 	private static Socket sock = null;
@@ -59,7 +44,6 @@ public class MarketClient {
 			System.out.println("Trying to connect...");
 			sock = new Socket(ip, 4040);
 			objOut = new ObjectOutputStream(sock.getOutputStream());
-			objIn = new ObjectInputStream(sock.getInputStream());
 			lineIn = new BufferedReader(new InputStreamReader(sock.getInputStream()));
 			lineOut = new PrintStream(sock.getOutputStream());
 			System.out.println("Success!");
@@ -77,6 +61,7 @@ public class MarketClient {
 			}
 		}
 	
+	@SuppressWarnings("finally")
 	public String registerCostumer(String name, String address, String phone, String email, String ID, String password) throws Exception { //Registra novo comprador
 		//Envia operacao desejada ao Server
 		lineOut.println(OP_REGISTER_COSTUMER); 
@@ -93,7 +78,6 @@ public class MarketClient {
 		try {
 			//Enviando informacoes a serem cadastradas
 			objOut.writeObject(c);	
-			System.out.println("MC register");
 		} 
 		
 		catch (IOException e) {System.out.println("registerCostumer - Client - IOException");}
@@ -160,6 +144,26 @@ public String refreshProductsFile(){
 		return SUCCESS;
 	}
 	catch(IOException e){
+		return ERROR;
+	}
+}
+
+public String buy(String ID, String quantity)
+{
+	try {
+		//Envia operacao a ser realizada
+		lineOut.println(OP_BUY);
+			
+		lineOut.println(ID);
+		lineOut.println(quantity);
+		
+		//aguarda resposta do servidor (sucesso/erro) 
+		
+		serverResponse = lineIn.readLine();
+		return serverResponse;
+	}
+	
+	catch (Exception e) {
 		return ERROR;
 	}
 }

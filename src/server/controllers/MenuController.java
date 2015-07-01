@@ -25,6 +25,7 @@ public class MenuController implements Initializable
 {
 	MarketServer ms = MarketServer.newMarketServer(); 
 	ArrayList<Product> list = new ArrayList<Product>();
+	private ArrayList<Product> outOfStockList;
 	
 	  @FXML
 	    private TableColumn<?, ?> columnProvider;
@@ -59,7 +60,7 @@ public class MenuController implements Initializable
     @Override    
 	public void initialize(URL url, ResourceBundle bundle)
 	{    
-		this.Refresh();
+    	this.Refresh();
 	}
 
     @FXML
@@ -76,12 +77,26 @@ public class MenuController implements Initializable
     void onClickRefresh(ActionEvent event) 
     {
     	this.Refresh();
+    	
     }
     
     void Refresh()
     {
     	try
 		{
+    		//Verifica se ha produtos fora de estoque
+	        //Se houver, pergunta se quer rebastecer o estoque
+	        outOfStockList = ms.outOfStock();
+	        if(!outOfStockList.isEmpty()){
+				Stage primaryStage = new Stage();
+		    	Parent root = FXMLLoader.load(getClass().getResource("../views/Restock.fxml"));
+				Scene scene = new Scene(root);
+				primaryStage.setScene(scene);
+				primaryStage.show();
+				primaryStage.toFront();
+			}
+	        
+    		//Cria lista de produtos e imprime-os na tabela
 			list = ms.registeredProductsList();
 			
 			columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -99,5 +114,5 @@ public class MenuController implements Initializable
 			System.out.println("Error when showing products! ");
 		}
     }
-
+    
 }

@@ -56,6 +56,8 @@ public class RegisterClientController
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
+			Stage stage = (Stage) btRegister.getScene().getWindow();
+    		stage.close();
     	}
     	
     	else{

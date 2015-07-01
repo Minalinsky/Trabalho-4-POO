@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane fx:id="paneMenuClient" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.MenuController">
+<Pane fx:id="paneMenuClient" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.MenuController">
    <children>
       <Text layoutX="303.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="98.13671875">
          <font>
@@ -57,5 +57,10 @@
             <TableColumn fx:id="columnQuantity" prefWidth="75.0" text="Quantity" />
          </columns>
       </TableView>
+      <Label fx:id="labelMsg" layoutX="379.0" layoutY="528.0" prefHeight="21.0" prefWidth="292.0" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

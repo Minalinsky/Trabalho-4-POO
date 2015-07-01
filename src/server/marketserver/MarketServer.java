@@ -8,22 +8,14 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import marketlib.Costumer;
-import marketlib.Product;
+import marketlib.*;
 
-public class MarketServer implements Runnable
+
+public class MarketServer extends DEFINE implements Runnable
 {
-	private static final String SUCCESS = "success";
-	private static final String ERROR = "error";
-	private static final String INVALID_COSTUMER = "invalid costumer";
-	private static final String INVALID_PRODUCT = "invalid product";
-	private static final String INVALID_PRICE = "invalid price";
-	private static final String DUPLICATED_COSTUMER = "duplicated costumer";
-	private static final String DUPLICATED_PRODUCT = "duplicated product";
-	
-	
-	
 	//Isolando construtor (Singleton)
 	private MarketServer() {}
 		
@@ -40,6 +32,7 @@ public class MarketServer implements Runnable
 	//Fica aceitando conexoes e jogando em Threads
 	public void initialize() throws Exception 
 	{ 
+		//Thread para aceitar conexoes
 		Thread t = new Thread(instance);
 		t.start();
 	}
@@ -159,7 +152,7 @@ private ArrayList<Costumer> registeredCostumersList() throws IOException{
 			return false;
 		}
 		
-		public String writeProduct(String name, String ID, String p, String expDate, String provider, int quantity) throws Exception { //p = price
+		public synchronized String writeProduct(String name, String ID, String p, String expDate, String provider, int quantity) throws Exception { //p = price
 			
 			if(quantity < 0)
 				quantity = 0;
@@ -193,7 +186,7 @@ private ArrayList<Costumer> registeredCostumersList() throws IOException{
 				
 		//Dado um produto, escreve no arquivo de produtos registrados
 		//Sobrecarga
-		public String writeProduct(Product p) throws Exception {
+		public synchronized String writeProduct(Product p) throws Exception {
 			return this.writeProduct(p.getName(), p.getID(), Float.toString(p.getPrice()), p.getExpirationDate(), p.getProvider(), p.getQuantity());
 		}
 		
@@ -210,4 +203,55 @@ private ArrayList<Costumer> registeredCostumersList() throws IOException{
 			buffRead.close();
 			return strList;
 		}
+		
+		//Adiciona quantidade de um certo produto
+		public synchronized String addQuantity(String ID, int q) throws Exception {
+			//Se o produto nao estiver registrado
+			if(!this.isProductRegistered(ID)) {
+				System.out.println("Produto nao consta");
+				return INVALID_PRODUCT;
+			}
+			
+			ArrayList<Product> prodList = this.registeredProductsList();
+			
+			if(prodList.stream().filter(p -> p.getID().equals(ID)).anyMatch(p -> p.getQuantity() >= -q)){
+			
+			List<Product> updtList = prodList.stream().peek(p -> {
+												if(p.getID().equals(ID)) {
+													p.setQuantity(p.getQuantity() + q);
+												}
+											}).collect(Collectors.toList());
+
+			
+			//Apagando arquivo
+			FileWriter fileOut = new FileWriter("src/server/marketserver/Products.csv");
+			fileOut.write("");
+			fileOut.flush();
+			fileOut.close();
+			
+			for(Product p : updtList) {
+				this.writeProduct(p);
+			}
+			
+			return SUCCESS;	
+			}
+			
+			else{
+				return INVALID_QUANTITY;
+			}
+		}
+		
+		public ArrayList<Product> outOfStock() throws Exception{
+			ArrayList<Product> prodList = this.registeredProductsList();
+			ArrayList<Product> outOfStockList = new ArrayList<Product>();
+			
+			for(Product p : prodList){
+				if(p.getQuantity() == 0){
+					outOfStockList.add(p);
+				}
+			}
+			return outOfStockList;
+			
+		}
+		
 }

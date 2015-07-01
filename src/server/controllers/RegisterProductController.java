@@ -55,17 +55,17 @@ public class RegisterProductController
     	
     		if(registerFlag.equals("success"))
     		{
-    			labelMsg.setText("Cadastro realizado com sucesso");
+    			labelMsg.setText("Succesfully registered");
     			labelMsg.setVisible(true);
     		}
     		else if(registerFlag.equals("duplicated product"))
     		{
-    			labelMsg.setText("Produto já cadastrado");
+    			labelMsg.setText("Product already registered");
     			labelMsg.setVisible(true);
     		}
     		else
     		{
-    			labelMsg.setText("Erro ao efetuar cadastro");
+    			labelMsg.setText("Error while registering");
     			labelMsg.setVisible(true);
     		}
     	}

@@ -4,33 +4,21 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import marketlib.Costumer;
+import marketlib.*;
 
-public class ServerThread implements Runnable
+public class ServerThread extends DEFINE implements Runnable
 {
-
-	private static final String OP_REGISTER_COSTUMER = "register costumer";
-	private static final String OP_LOGIN = "login";
-	private static final String OP_REFRESH_CLIENT = "refresh client";
-	private static final String EOF = "eof";
-	
-	
-	private Socket servSock = null;
-	private ObjectOutputStream objOut = null;
 	private ObjectInputStream objIn = null;
 	private BufferedReader lineIn = null; //Criado pois o readLine() do ObjectInputStream está como "deprecated"
 	private PrintStream lineOut = null;
 	private MarketServer marketServer;
 	
 	public ServerThread(Socket servSock, MarketServer marketServer) throws IOException {
-		this.servSock = servSock;
 		this.marketServer = marketServer;
-		objOut = new ObjectOutputStream(servSock.getOutputStream());
 		objIn = new ObjectInputStream(servSock.getInputStream());
 		lineIn = new BufferedReader(new InputStreamReader(servSock.getInputStream()));
 		lineOut = new PrintStream(servSock.getOutputStream()); 
@@ -49,9 +37,9 @@ public class ServerThread implements Runnable
 						break;
 						
 					case OP_LOGIN:
-						String ID = lineIn.readLine(); //le ID vindo de client
+						String clientID = lineIn.readLine(); //le ID vindo de client
 						String password = lineIn.readLine(); //le password vindo de client
-						lineOut.println(marketServer.login(ID, password)); //envia resposta para clint (sucesso/erro)
+						lineOut.println(marketServer.login(clientID, password)); //envia resposta para clint (sucesso/erro)
 						break;
 						
 					case OP_REFRESH_CLIENT:
@@ -60,6 +48,12 @@ public class ServerThread implements Runnable
 							lineOut.println(s);
 						}
 						lineOut.println(EOF);
+						break;
+						
+					case OP_BUY:
+						String productID = lineIn.readLine(); //le productID vindo de client
+						String quantity = lineIn.readLine(); //le quantity vindo de client
+						lineOut.println(marketServer.addQuantity(productID, -(Integer.parseInt(quantity))));
 						break;
 						
 					default: 

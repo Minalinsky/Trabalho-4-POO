@@ -38,6 +38,9 @@ public class ConnectionController
     		Scene scene = new Scene(root);
     		primaryStage.setScene(scene);
     		primaryStage.show();
+    		
+    		Stage stage = (Stage) btConnect.getScene().getWindow();
+    		stage.close();
     	}
     	else
     	{

@@ -21,6 +21,7 @@ public class MainServer extends Application
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		primaryStage.toBack();
 		
 		MarketServer ms = MarketServer.newMarketServer();
 		ms.initialize();

@@ -6,12 +6,12 @@ import java.util.ResourceBundle;
 
 import client.marketclient.MarketClient;
 import marketlib.Product;
-import server.marketserver.MarketServer;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,6 +22,9 @@ public class MenuController implements Initializable
 {
 	MarketClient mc = MarketClient.newMarketClient(); 
 	ArrayList<Product> list = new ArrayList<Product>();
+
+    @FXML
+    private Label labelMsg;
 	
 	@FXML
 	private TableColumn<?, ?> columnProvider;
@@ -74,7 +77,18 @@ public class MenuController implements Initializable
     @FXML
     void onClickBuy(ActionEvent event) 
     {
-
+    	String buyFlag = mc.buy(textId.getText(), textQtd.getText());
+    	
+    	if(buyFlag.equals("success"))
+    	{
+    		labelMsg.setText("Compra efetuada com sucesso!");
+    		labelMsg.setVisible(true);
+    	}
+    	else{
+    		labelMsg.setText("Erro na compra");
+    		labelMsg.setVisible(true);
+    	}
+    	this.refresh();
     }
 
     void refresh()

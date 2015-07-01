@@ -33,7 +33,7 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button layoutX="177.0" layoutY="227.0" mnemonicParsing="false" onAction="#onClickLogin" prefHeight="39.0" prefWidth="78.0" text="Login">
+      <Button fx:id="btLogin" layoutX="177.0" layoutY="227.0" mnemonicParsing="false" onAction="#onClickLogin" prefHeight="39.0" prefWidth="78.0" text="Login">
          <font>
             <Font size="18.0" />
          </font>
@@ -44,7 +44,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Button layoutX="171.0" layoutY="354.0" mnemonicParsing="false" onAction="#onClickRegister" prefHeight="39.0" prefWidth="89.0" text="Register">
+      <Button fx:id="btRegister" layoutX="171.0" layoutY="354.0" mnemonicParsing="false" onAction="#onClickRegister" prefHeight="39.0" prefWidth="89.0" text="Register">
          <font>
             <Font size="18.0" />
          </font>

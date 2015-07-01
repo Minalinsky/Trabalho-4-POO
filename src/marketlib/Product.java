@@ -2,6 +2,7 @@ package marketlib;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Product implements Serializable{
 
 	private String name;
