@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane fx:id="paneRegisterProduct" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.controllers.RegisterProductController">
+   <children>
+      <Text layoutX="46.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="64.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="45.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" wrappingWidth="48.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="37.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Validity:" wrappingWidth="64.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="29.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Provider:" wrappingWidth="82.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="29.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" wrappingWidth="82.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="textName" layoutX="130.0" layoutY="194.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textPrice" layoutX="130.0" layoutY="246.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textValidity" layoutX="130.0" layoutY="302.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textProvider" layoutX="130.0" layoutY="357.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textQuantity" layoutX="130.0" layoutY="411.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Separator layoutX="29.0" layoutY="104.0" prefHeight="2.0" prefWidth="543.0" />
+      <Button fx:id="btRegister" layoutX="258.0" layoutY="463.0" mnemonicParsing="false" onAction="#onClickRegister" prefHeight="39.0" prefWidth="98.0" text="Register">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="168.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Product" wrappingWidth="265.720703125">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <Text layoutX="64.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" wrappingWidth="28.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="textID" layoutX="130.0" layoutY="136.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label fx:id="labelMsg" layoutX="192.0" layoutY="518.0" prefHeight="21.0" prefWidth="217.0" textAlignment="CENTER" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

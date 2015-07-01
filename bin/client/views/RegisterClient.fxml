@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane fx:id="paneRegisterClient" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.RegisterClientController">
+   <children>
+      <Text layoutX="39.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="64.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="25.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" wrappingWidth="75.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="35.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" wrappingWidth="55.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="39.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="48.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="22.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="82.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="textName" layoutX="123.0" layoutY="133.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textAddress" layoutX="123.0" layoutY="185.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textPhone" layoutX="123.0" layoutY="241.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textEmail" layoutX="123.0" layoutY="296.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textPassword" layoutX="123.0" layoutY="350.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Separator layoutX="29.0" layoutY="104.0" prefHeight="2.0" prefWidth="543.0" />
+      <Button fx:id="btRegister" layoutX="252.0" layoutY="462.0" mnemonicParsing="false" onAction="#onClickRegister" prefHeight="39.0" prefWidth="98.0" text="Register">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="206.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Client" wrappingWidth="227.720703125">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <Text layoutX="47.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" wrappingWidth="31.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="textID" layoutX="123.0" layoutY="410.0" prefHeight="39.0" prefWidth="420.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Text fx:id="textError" layoutX="223.0" layoutY="533.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Erro ao registrar cliente" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
