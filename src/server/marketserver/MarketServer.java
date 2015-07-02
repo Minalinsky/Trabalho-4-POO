@@ -53,7 +53,7 @@ public class MarketServer extends DEFINE implements Runnable
 			catch(Exception e){}
 	}
 	
-private ArrayList<Costumer> registeredCostumersList() throws IOException{
+public ArrayList<Costumer> registeredCostumersList() throws IOException{
 		
 		ArrayList<Costumer> list = new ArrayList<Costumer>();
 		String[] str;
