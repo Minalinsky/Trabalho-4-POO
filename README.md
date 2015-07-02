@@ -68,3 +68,7 @@ Junto ao cliente, temos somente o Products.csv com todos os dados recebidos do s
 4 - Uso de pelo menos 1 padrão de projeto e descrever no README. (1.5): **Implementado e Descrito**
 
 5 - Notificação de Produtos Indisponíveis / JavaMail API (1.5): **Implementado**
+
+#Aviso
+
+Todas as funcionalidades aqui descritas foram testadas sem a ocorrência de nenhum erro. Caso algo no programa não esteja funcionando devidamente, favor contatar algum integrante do grupo.
