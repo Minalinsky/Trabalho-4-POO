@@ -30,10 +30,10 @@ Na classe MarketClient: Singleton
  
   -Não é possível realizar uma compra se a quantidade desejada for maior que a do estoque do servidor
   
-  -O botão "Refresh" tanto atualiza o arquivo de produtos do cleinte quanto mostra na tela os produtos atualizados
+  -O botão "Refresh" tanto atualiza o arquivo de produtos do cliente quanto mostra na tela os produtos atualizados
   
 #####Servidor:
-  -A notificação por email é enviada a todos os costumers/usuarios registrados no servidor. **OBS:** Ao reestocar os produtos, os emails são automaticamente enviados. **ATENCAO! Há um certo delay apara a ação ser completada! O programa não está travado!**
+  -A notificação por email é enviada a todos os costumers/usuarios registrados no servidor. **OBS:** Ao reestocar os produtos, os emails são automaticamente enviados. **ATENCAO! Há um certo delay para a ação ser completada! O programa não está travado!**
   
   -Quando um produto é zerado do estoque, abre-se uma nova janela listando todos os produtos fora de estoque e requisitando o reabastecimento dos produtos listados. **Todos os produtos serão reabastecidos com a quantidade passada**
 
