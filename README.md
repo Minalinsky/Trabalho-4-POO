@@ -1,14 +1,14 @@
 # Trab4POO
 Implementação do Trabalho 4 da disciplina de Programação Orientada a Objetos - Implementação de um Mercado Online
 
-####Programado em
+#### Programado em
 ```
 Sistema Operacional: Windows 8
 IDE: Eclipse Luna (versão: Luna Service Release 2 (4.4.2))
 Java 8 (java version "1.8.0_45")
 ```
 
-####Instrucoes de Execucao
+#### Instrucoes de Execucao
 1. Executar a classe MainServer para inicializar o servidor
 2. Executar a classe MainClient para inicializar o cliente
 3. Na janela aberta pelo MainClient, digitar o IP do servidor
@@ -17,7 +17,7 @@ Java 8 (java version "1.8.0_45")
 
 **OBS.:** .jar não incluso.
 
-####Design Patterns usados:
+#### Design Patterns usados:
 Na classe MarketServer: Singleton
 
 Na classe MarketClient: Singleton
