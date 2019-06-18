@@ -22,8 +22,8 @@ Na classe MarketServer: Singleton
 
 Na classe MarketClient: Singleton
 
-####Descricao de algumas das funcionalidades
-#####Cliente:
+#### Descricao de algumas das funcionalidades
+##### Cliente:
   Após o usuario estar logado:
   
   -Ao clicar no botão "Buy", o arquivo Products.csv do cliente é automaticamente atualizado e os novos valores são mostrados na tela.
@@ -32,7 +32,7 @@ Na classe MarketClient: Singleton
   
   -O botão "Refresh" tanto atualiza o arquivo de produtos do cliente quanto mostra na tela os produtos atualizados
   
-#####Servidor:
+##### Servidor:
   -A notificação por email é enviada a todos os costumers/usuarios registrados no servidor. **OBS:** Ao reestocar os produtos, os emails são automaticamente enviados. **ATENCAO! Há um certo delay para a ação ser completada! O programa não está travado! Ao término do envio dos emails, a tela de reabastecimento do estoque é automaticamente fechada**
   
   -Quando um produto é zerado do estoque, abre-se uma nova janela listando todos os produtos fora de estoque e requisitando o reabastecimento dos produtos listados. **Todos os produtos serão reabastecidos com a quantidade passada**
@@ -40,7 +40,7 @@ Na classe MarketClient: Singleton
   -Assim como no cliente, o botão "Refresh" tanto atualiza o arquivo de produtos do cliente quanto mostra na tela os produtos atualizados
 
   -Nao é possível cadastrar novos produtos ao passar campos como Price e Quantity inválidos (devem ser respectivamente float e int)
-##Obervações Gerais
+## Obervações Gerais
 1 - **PACOTES**
 
 1.1 - No pacote "client" encontam-se os arquivos relacionados ao cliente
@@ -58,7 +58,7 @@ Possuímos junto ao servidor, o arquivo Products.csv e o Costumers.csv. No prime
 Junto ao cliente, temos somente o Products.csv com todos os dados recebidos do servidor dos produtos. Esse é o arquivo alterado a cada atualização da lista de produtos realizada pelo cliente.
 
 
-##Implementações Extras
+## Implementações Extras
 1 - Interface Gráfica em JavaFX (1.5): **Implementado**
 
 2 - Teste em JUnit (1.5): **Nao Implementado**
