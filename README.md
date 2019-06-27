@@ -26,11 +26,11 @@ Na classe MarketClient: Singleton
 ##### Cliente:
   Após o usuario estar logado:
   
-  -Ao clicar no botão "Buy", o arquivo Products.csv do cliente é automaticamente atualizado e os novos valores são mostrados na tela.
+  - Ao clicar no botão "Buy", o arquivo Products.csv do cliente é automaticamente atualizado e os novos valores são mostrados na tela.
  
-  -Não é possível realizar uma compra se a quantidade desejada for maior que a do estoque do servidor
+  - Não é possível realizar uma compra se a quantidade desejada for maior que a do estoque do servidor
   
-  -O botão "Refresh" tanto atualiza o arquivo de produtos do cliente quanto mostra na tela os produtos atualizados
+  - O botão "Refresh" tanto atualiza o arquivo de produtos do cliente quanto mostra na tela os produtos atualizados
   
 ##### Servidor:
   -A notificação por email é enviada a todos os costumers/usuarios registrados no servidor. **OBS:** Ao reestocar os produtos, os emails são automaticamente enviados. **ATENCAO! Há um certo delay para a ação ser completada! O programa não está travado! Ao término do envio dos emails, a tela de reabastecimento do estoque é automaticamente fechada**
@@ -69,6 +69,6 @@ Junto ao cliente, temos somente o Products.csv com todos os dados recebidos do s
 
 5 - Notificação de Produtos Indisponíveis / JavaMail API (1.5): **Implementado**
 
-#Aviso
+### Aviso
 
 Todas as funcionalidades aqui descritas foram testadas sem a ocorrência de nenhum erro. Caso algo no programa não esteja funcionando devidamente, favor contatar algum integrante do grupo.
